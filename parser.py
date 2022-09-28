@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-import numpy as np
-
-
+from pyamaze import maze
+import csv
+OUTPUT = "./output.csv"
+INPUT = "./inputfile.txt"
 class ParseFile:
     def __init__(self, in_file):
         self.file = open(in_file, 'r')
@@ -11,10 +12,9 @@ class ParseFile:
         self.rows = 0
         self.parse_lines()
         self.get_dim()
-        #self.arr = np.empty((self.rows, self.cols))
-        #self.arr = [[[0 for x in range(self.rows)] for y in range(self.cols)] for z in range(4)]
         self.arr = [[[0 for x in range(4)] for y in range(self.cols)] for z in range(self.rows)]
         self.compute_arr()
+        self.write_csv()
 
     # Cleaning up lines for easier processing
     def parse_lines(self):
@@ -46,7 +46,16 @@ class ParseFile:
             self.arr[row][col] = line[2:]
         print(self.arr)
 
+    # Writing to new csv
+    def write_csv(self):
+        output = open(OUTPUT, "w")
+        output.write("  cell,  E,W,N,S\n")
+        for i in range(self.rows):
+            for j in range(self.cols):
+                output.write('"({}, {})",{},{},{},{}\n'.format((i+1),(j+1),self.arr[i][j][0],self.arr[i][j][1],self.arr[i][j][2],self.arr[i][j][3]))
+
+
     
         
 if __name__=="__main__":
-    main = ParseFile("./inputfile.txt")
+    main = ParseFile(INPUT)
