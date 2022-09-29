@@ -45,7 +45,7 @@ class ParseFile:
             self.arr[row][col] = line[2:]
         print(self.arr)
 
-    # Writing to new csv
+    # Writing to new csv with proper formatting for loading into pyamaze maze generation
     def write_csv(self):
         output = open(self.output_file, "w")
         for j in range(self.cols):
