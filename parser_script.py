@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from pyamaze import maze
 
 class ParseFile:
     def __init__(self, input_file="./input.txt", output_file="./output.csv", N=2, S=3, E=0, W=1):
@@ -49,9 +48,8 @@ class ParseFile:
     # Writing to new csv
     def write_csv(self):
         output = open(self.output_file, "w")
-        output.write("  cell,  E,W,N,S\n")
-        for i in range(self.rows):
-            for j in range(self.cols):
+        for j in range(self.cols):
+            for i in range(self.rows):
                 output.write('"({}, {})",{},{},{},{}\n'.format((i+1),(j+1),self.arr[i][j][self.E],self.arr[i][j][self.W],self.arr[i][j][self.N],self.arr[i][j][self.S]))
 
 
