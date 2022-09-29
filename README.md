@@ -1,4 +1,4 @@
-# Project1_Maze_Generation
+# Project1_Maze_Generation ECE 3432
 
 ## Requirements
 Install [Pyamaze](https://github.com/MAN1986/pyamaze)
