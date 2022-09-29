@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 from pyamaze import maze
-import csv
-OUTPUT = "./output.csv"
-INPUT = "./inputfile.txt"
+
 class ParseFile:
-    def __init__(self, in_file):
-        self.file = open(in_file, 'r')
+    def __init__(self, input_file="./input.txt", output_file="./output.csv", N=2, S=3, E=0, W=1):
+        self.N, self.S, self.E, self.W=N,S,E,W
+        self.output_file=output_file
+        self.file = open(input_file, 'r')
         self.lines = self.file.readlines()
         self.parsed_lines = []
         self.cols = 0
@@ -48,14 +48,14 @@ class ParseFile:
 
     # Writing to new csv
     def write_csv(self):
-        output = open(OUTPUT, "w")
+        output = open(self.output_file, "w")
         output.write("  cell,  E,W,N,S\n")
         for i in range(self.rows):
             for j in range(self.cols):
-                output.write('"({}, {})",{},{},{},{}\n'.format((i+1),(j+1),self.arr[i][j][0],self.arr[i][j][1],self.arr[i][j][2],self.arr[i][j][3]))
+                output.write('"({}, {})",{},{},{},{}\n'.format((i+1),(j+1),self.arr[i][j][self.E],self.arr[i][j][self.W],self.arr[i][j][self.N],self.arr[i][j][self.S]))
 
 
     
         
 if __name__=="__main__":
-    main = ParseFile(INPUT)
+    main = ParseFile()
