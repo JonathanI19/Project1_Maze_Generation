@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 import csv
 
+# Class for parsing files
 class ParseFile:
     def __init__(self, input_file="./input.txt", output_file="./output.csv", N=2, S=3, E=0, W=1):
+
+        # Variable Initialization
         self.N, self.S, self.E, self.W=N,S,E,W
         self.output_file=output_file
         self.file = open(input_file, 'r')
@@ -52,6 +55,8 @@ class ParseFile:
         output.write("  cell  ,E,W,N,S")
         for j in range(self.cols):
             for i in range(self.rows):
+                
+                # Writing data in proper formatting
                 output.write('\n"({}, {})",{},{},{},{}'.format((i+1),(j+1),self.arr[i][j][self.E],self.arr[i][j][self.W],self.arr[i][j][self.N],self.arr[i][j][self.S]))
     
         
