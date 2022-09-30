@@ -5,7 +5,7 @@ from parser_script import ParseFile
 from pyamaze import maze
 
 OUTPUT="./example_output.csv"
-INPUT="./input.txt"
+INPUT="./input2.txt"
 def main():
     parse = ParseFile(input_file=INPUT, output_file=OUTPUT)
     m = maze(rows=parse.rows, cols=parse.cols)
