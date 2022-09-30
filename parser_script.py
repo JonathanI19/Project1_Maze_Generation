@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import csv
 
 # Class for parsing files
 class ParseFile:
