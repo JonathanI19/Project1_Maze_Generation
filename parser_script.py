@@ -44,8 +44,13 @@ class ParseFile:
                     line[i] = 0
             self.arr[row][col] = line[2:]
 
+<<<<<<< HEAD
     # Writing to new csv with proper formatting for loading into pyamaze maze generation
     def write_csv(self,E,W,N,S):
+=======
+    # Writing to new csv
+    def write_csv(self):
+>>>>>>> parent of 18b897a... Organized
         output = open(self.output_file, "w")
         output.write('cell,E,W,N,S\r')
         for j in range(self.cols):
