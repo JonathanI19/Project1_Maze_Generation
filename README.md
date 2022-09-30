@@ -18,6 +18,18 @@ This repo is designed to convert a text or csv file into the proper format to be
 Upon parsing and converting the file, pyamaze can be used to generate and save a maze based upon the data you passed in.
 
 
+## parser_script.py Info
+This python script utilizes a class to parse an input file and generate an output file.
+
+Number of rows and number of columns are computed dynamically by the get_dim method and do not need to be passed in.
+
+To modify how the function splits and replaces extraneous characters such as commas and quotes, modify line 24 in the parse_lines method:
+```
+temp = line.replace('"', '').replace(')', '').replace('(', '').replace(',',' ')
+```
+The input file is reorganized into a 2-d matrix of lists, where each matrix location corresponds to the matching cell location of the final maze.
+
+
 ## Example 1 Usage
 
 Example 1 takes in a set of input data already in the proper order (E,W,N,S), generates an output csv, and then uses this to create a static maze via Pyamaze. You do not need to pass in E,W,N,S as the default ordering assumes an E,W,N,S input file.
