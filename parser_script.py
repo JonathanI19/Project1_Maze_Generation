@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 class ParseFile:
-    def __init__(self, input_file="./input.txt", output_file="./output.csv", N=2, S=3, E=0, W=1):
+    def __init__(self, input_file="./input.txt", output_file="./output.csv", N=3, S=1, E=0, W=2):
         self.N, self.S, self.E, self.W=N,S,E,W
         self.output_file=output_file
         self.file = open(input_file, 'r')
@@ -13,7 +13,7 @@ class ParseFile:
         self.get_dim()
         self.arr = [[[0 for x in range(4)] for y in range(self.cols)] for z in range(self.rows)]
         self.compute_arr()
-        self.write_csv()
+        self.write_csv(E,W,N,S)
 
     # Cleaning up lines for easier processing
     def parse_lines(self):
@@ -43,14 +43,15 @@ class ParseFile:
                 else:
                     line[i] = 0
             self.arr[row][col] = line[2:]
-        print(self.arr)
 
     # Writing to new csv with proper formatting for loading into pyamaze maze generation
-    def write_csv(self):
+    def write_csv(self,E,W,N,S):
         output = open(self.output_file, "w")
+        output.write('cell,E,W,N,S\r')
         for j in range(self.cols):
             for i in range(self.rows):
-                output.write('"({}, {})",{},{},{},{}\n'.format((i+1),(j+1),self.arr[i][j][self.E],self.arr[i][j][self.W],self.arr[i][j][self.N],self.arr[i][j][self.S]))
+                #output.write('"({}, {})",{},{},{},{}\n'.format((i+1),(j+1),self.arr[i][j][E],self.arr[i][j][W],self.arr[i][j][N],self.arr[i][j][S]))
+                output.write('"({}, {})",{},{},{},{}\n'.format((i+1),(j+1),self.arr[i][j][0],self.arr[i][j][1],self.arr[i][j][2],self.arr[i][j][3]))
 
 
     
