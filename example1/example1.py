@@ -4,13 +4,12 @@ sys.path.append("/home/jon/robotics_class/Project1_Maze_Generation/")
 from parser_script import ParseFile
 from pyamaze import maze
 
-OUTPUT="./example_output.csv"
-INPUT="./input.txt"
+OUTPUT="./example_output_1.csv"
+INPUT="./example_input_1.txt"
 def main():
     parse = ParseFile(input_file=INPUT, output_file=OUTPUT)
     m = maze(rows=parse.rows, cols=parse.cols)
-    #m = maze()
-    m.CreateMaze(loadMaze='./dfs.csv')
+    m.CreateMaze(loadMaze=OUTPUT)
     m.run()
 
 if __name__=="__main__":
