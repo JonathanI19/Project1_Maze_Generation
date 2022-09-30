@@ -70,7 +70,9 @@ def main():
     m.CreateMaze(loadMaze=OUTPUT)
     m.run()
 ```
-The ParseFile class generates an output file under the name specified by OUTPUT. This is then used to generate the maze shown below. Note how N,E,S,W are passed into ParseFile. These are indexed from 0-3 and correspond to the order of N,E,S,W in the input file. So if your input data is ordered (S,W,E,N) you would call ParseFile the following way:
+The ParseFile class generates an output file under the name specified by OUTPUT. This is then used to generate the maze shown below. Note how N,E,S,W are passed into ParseFile. These are indexed from 0-3 and correspond to the order of N,E,S,W in the input file.
+
+So if your input data is ordered (S,W,E,N) you would call ParseFile the following way:
 ```
 parse = ParseFile(input_file=INPUT, output_file=OUTPUT, N=3, S=0, E=2, W=1)
 ```
